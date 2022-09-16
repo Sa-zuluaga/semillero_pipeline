@@ -13,8 +13,8 @@ public class WordCounterDefault implements WordCounter {
     public Summary process(String pathFile) throws IOException {
         Path path = Paths.get(pathFile);
         long numberOfLines = Files.lines(path).count();
-        long numberOfWords = Files.lines(path).count()
-                .map(line -> line.split(regex: " "))
+        long numberOfWords = Files.lines(path)
+                .map(line -> line.split(" "))
                 .mapToInt(wordsOfLine -> wordsOfLine.length)
                 .sum();
         return new Summary(numberOfLines, numberOfWords);
