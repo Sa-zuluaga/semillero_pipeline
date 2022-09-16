@@ -20,7 +20,8 @@ jacocoTestReport {
     }
     afterEvaluate {
         classDirectories.from = files(classDirectories.files.collect {
-            fileTree(dir: it, excludes: ['com/sazuluaga/semillero/model/**'
+            fileTree(dir: it, exclude:[
+                    'com/sazuluaga/semillero/model/**'
             ])
         })
     }
@@ -30,7 +31,7 @@ sonarqube {
         property "sonar.projectKey", "practicasemiller"
         property "sonar.organization", "szuluagas"
         property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.coverage.exlusions", "**/model/**"
+        property "sonar.coverage.exclusions", "**/model/**"
     }
 }
 
